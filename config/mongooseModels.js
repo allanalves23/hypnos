@@ -93,5 +93,39 @@ module.exports = app => {
 
     const Like = app.mongoose.model('likes', like)
 
-    return { Article, Theme, Comment, View, Like }
+    
+    // Schema para os usuários do sistema. Tanto administradores e autores
+    const user = new app.mongoose.Schema({
+        _id: {type: app.mongoose.Schema.ObjectId, auto: true},
+        name: String,
+        gender: String,
+        birthDate: Date,
+        profilePhoto: String,
+        instagram: String,
+        twitter: String,
+        github: String,
+        youtube: String,
+        cpf: {type: String, unique: true},
+        email: {type: String, unique: true},
+        telphone: {type: String, unique: true},
+        celphone: {type: String, unique: true},
+        address: String,
+        number: Number,
+        password: String,
+        deleted: Boolean,
+        expireToken: String,
+        rescuePassword: String,
+        tagAdmin: String,
+        occupation: String,
+        especiality: String,
+        tagAuthor: String,
+    },{
+        timestamps: {
+            createdAt: 'created_at'
+        }
+    })
+
+    const User = app.mongoose.model('users', user)
+
+    return { Article, Theme, Comment, View, Like, User }
 }

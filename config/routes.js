@@ -26,4 +26,7 @@ module.exports = app => {
     app.route('/contact')
         .post(app.api.messages.messages.sendMessage)
 
+    app.route('/authors/:id')
+        .get(app.api.authors.authors.getAuthor)
+
 }

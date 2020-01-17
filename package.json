@@ -6,7 +6,13 @@
   "scripts": {
     "start": "nodemon"
   },
-  "keywords": ["Coder Mind", "CM-API", "CM-Management-API", "Coder Mind API", "Coder Mind management API"],
+  "keywords": [
+    "Coder Mind",
+    "CM-API",
+    "CM-Management-API",
+    "Coder Mind API",
+    "Coder Mind management API"
+  ],
   "author": "Allan Wanderley Alves",
   "license": "self-funding",
   "dependencies": {
