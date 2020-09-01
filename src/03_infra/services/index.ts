@@ -28,7 +28,7 @@ class Services {
   static start(express: IExpress, port = 3010, host = '0.0.0.0'): void {
     express.listen(port, host, () => {
       // eslint-disable-next-line no-console
-      console.log(`server running at port ${port}`);
+      console.log(`server running at http://${host}:${port}`);
     });
   }
 }
