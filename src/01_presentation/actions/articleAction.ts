@@ -22,6 +22,7 @@ class ArticleAction {
     this._articleService = app.get('articleService');
     this._commentService = app.get('commentService');
 
+    this._app.route(`${resource}`).get(this.get);
     this._app.route(`${resource}/boosted`).get(this.getBoosted);
     this._app.route(`${resource}/:customUri`).get(this.getOne);
     this._app.route(`${resource}/:customUri/relateds`).get(this.getRelateds);
@@ -30,6 +31,22 @@ class ArticleAction {
     this._app.route(`${resource}/:customUri/views`).post(this.saveView);
     this._app.route(`${resource}/:customUri/likes`).post(this.saveLike);
   }
+
+  get = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const articlesFound: FoundArticles = await this._articleService.get(
+        getNumber(req.query.skip),
+        getNumber(req.query.limit)
+      );
+
+      res.json({
+        articles: articlesFound.articles.map((article: IArticle) => new ArticleModel(article)),
+        count: articlesFound.count
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
 
   getBoosted = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {

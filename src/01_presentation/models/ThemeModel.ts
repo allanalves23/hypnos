@@ -7,10 +7,10 @@ class ThemeModel {
   public longDescription: string;
 
   constructor(theme: ITheme) {
-    this.id = theme.id;
-    this.description = theme.name;
-    this.alias = theme.alias;
-    this.longDescription = theme.description;
+    this.id = theme?.id;
+    this.description = theme?.name;
+    this.alias = theme?.alias;
+    this.longDescription = theme?.description;
   }
 }
 

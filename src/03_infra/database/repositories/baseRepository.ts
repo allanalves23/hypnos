@@ -22,6 +22,10 @@ class BaseRepository {
   create(model: unknown): Promise<Document> {
     return new this._model(model).save();
   }
+
+  async count(query: MongooseFilterQuery<unknown>): Promise<number> {
+    return await this._model.estimatedDocumentCount(query);
+  }
 }
 
 export default BaseRepository;

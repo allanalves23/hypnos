@@ -11,14 +11,14 @@ class CommentModel {
   public createdAt: Date;
 
   constructor(comment: IComment) {
-    this.id = comment.id;
-    this.readerName = comment.userName;
-    this.readerEmail = comment.userEmail;
-    this.content = comment.message;
-    this.articleId = comment.articleId.toHexString();
-    this.state = comment.state;
-    this.readedAt = comment.readedAt;
-    this.createdAt = comment.createdAt;
+    this.id = comment?.id;
+    this.readerName = comment?.userName;
+    this.readerEmail = comment?.userEmail;
+    this.content = comment?.message;
+    this.articleId = comment?.articleId.toHexString();
+    this.state = comment?.state;
+    this.readedAt = comment?.readedAt;
+    this.createdAt = comment?.createdAt;
   }
 }
 
